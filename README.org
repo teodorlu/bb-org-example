@@ -1,0 +1,37 @@
+#+TITLE: A lightweight example of pushing HTML with Org-mode, Babashka and Pandoc
+
+This is a light example to get off the ground if you want to author content in
+Org-mode, convert it to HTML with Pandoc and build a static site of the result.
+Supports JVM Clojure and Babashka.
+
+- =src= :: The static code generator
+- =posts= :: Your content
+
+This repo is a starting point. You are wholeheartedly encouraged to take what is
+useful, discard the rest, and continue to tweak to your needs and preferences.
+
+** Pandoc required
+
+This repo attempt to shell out to a Pandoc binary on your system. You can
+install Pandoc from a package manager (like Homebrew, Apt-Get or Pacman), or
+directly from [[https://pandoc.org/][Pandoc.org]].
+
+** Run from REPL
+
+1. Start a REPL with the =:dev= alias
+2. Have a look at the comment block in the bottom of =bb_org_example.clj=
+3. Play around!
+
+** Run from command line
+
+Build your site:
+
+#+begin_src bash
+  bb build
+#+end_src
+
+Clean up build html files:
+
+#+begin_src bash
+  bb clean
+#+end_src
