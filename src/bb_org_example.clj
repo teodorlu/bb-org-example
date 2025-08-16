@@ -45,7 +45,7 @@
 (defn build-index [slugs]
   (let [html-path (fs/file site-root "index.html")]
     (spit html-path
-          (str "!<DOCTYPE html>\n"
+          (str "<!DOCTYPE html>\n"
                (hiccup/html (index-hiccup slugs))))
     [:created (str html-path) :from (map (comp str slug->org-path) slugs)]))
 
