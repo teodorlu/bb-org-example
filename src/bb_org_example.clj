@@ -3,22 +3,16 @@
             [bb-org-example.pandoc :as pandoc]
             [hiccup2.core :as hiccup]))
 
-
-
-;; step 1 - list my posts.
 (defn list-post-slugs []
   (->> (fs/list-dir "posts")
        (filter (comp #{"org"} fs/extension))
        (map fs/file-name)
        (map fs/strip-ext)))
-#_(first (list-post-slugs))
-;; => "org-on-quickblog"
 
 (def posts-root "posts")
 
 (defn slug->org-path [slug]
   (fs/file posts-root (str slug ".org")))
-#_ (fs/exists? (slug->org-path "org-on-quickblog"))
 
 (def site-root "site")
 
@@ -67,13 +61,8 @@
   (clean-site-html))
 
 (comment
-  ;; clean
   (clean)
-
-  ;; build
   (build)
-
-  ;; load new dependencies
   ((requiring-resolve 'clojure.repl.deps/sync-deps))
 
   )
