@@ -1,0 +1,9 @@
+#+TITLE: Org-mode on Quickblog?
+
+Before putting together this little repo, I wanted to "just add Org support to Quickblog".
+Quickblog is Michiel's zero-hassle too to write markdown then, publish it on the web.
+I quickly found out that Quickblog had grown more than I expected!
+So instead of messing around in a Quickblog fork, I started here, on the side.
+
+So I took Jack Rusher's advice, and elected to make a small thing on the side instead.
+Maybe getting it integrated is feasible as a next step.

@@ -1,0 +1,23 @@
+#+TITLE: Org-mode or Markdown from Clojure?
+
+Org-mode is just so *nice* to write.
+The outlining.
+The lists.
+The excellent way of embedding source code from other languages.
+
+I've converted Org-mode to HTML from Clojure by shelling out to [[https://pandoc.org/][Pandoc]].
+Pandoc is super flexible, but:
+
+- You can't install the binary with deps.edn
+- And shelling out to a separate process for conversion gives a performance overhead.
+
+I've chosen to use Org-mode because I prefer it for writing.
+"Optimize for the beginning of the funnel" if you will - the actual writing of words is the point, not the little system for putting words on the Internet.
+
+The markdown landscape has recently improved seriously with the launch of [[https://github.com/nextjournal/markdown/][nextjournal/markdown]].
+
+- It's based on CommonMark - an unambiguous markdown specification (in contrast to the original)
+- It works on the JVM and on Javascript
+- It provides an intermediate representation (IR) of Clojure data.
+
+I've thought that a Clojure intermediate representation of Pandoc data would be nice too, and have worked with a friend on [[https://github.com/teodorlu/pandocir/][pandocir]] for a while.

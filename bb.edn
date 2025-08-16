@@ -1,0 +1,9 @@
+{:deps {io.github.teodorlu/bb-org-example {:local/root "."}}
+ :tasks
+ {:requires ([bb-org-example :as e])
+  :init (defn report! [lines]
+          (doseq [line lines]
+            (prn line)))
+  build (report! (e/build))
+  clean (report! (e/clean))
+  }}
