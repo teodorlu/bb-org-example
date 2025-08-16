@@ -40,7 +40,7 @@
     [:h1 "Your site"]
     [:ul
      (for [slug slugs]
-       [:li {:href (slug->link slug)} slug])]]])
+       [:li [:a {:href (slug->link slug)} slug]])]]])
 
 (defn build-index [slugs]
   (let [html-path (fs/file site-root "index.html")]
