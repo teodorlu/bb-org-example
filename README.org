@@ -12,9 +12,8 @@ useful, discard the rest, and continue to tweak to your needs and preferences.
 
 ** Pandoc required
 
-This repo attempt to shell out to a Pandoc binary on your system. You can
-install Pandoc from a package manager (like Homebrew, Apt-Get or Pacman), or
-directly from [[https://pandoc.org/][Pandoc.org]].
+This repo shells Pandoc to convert Org-mode to HTML.
+You can install Pandoc from a package manager (like Homebrew, Apt-Get or Pacman), or directly from [[https://pandoc.org/][Pandoc.org]].
 
 ** Run from REPL
 
