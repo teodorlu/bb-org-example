@@ -35,3 +35,8 @@ Clean up build html files:
 #+begin_src bash
   bb clean
 #+end_src
+
+** Alternatives
+
+- [[https://github.com/borkdude/quickblog][Quickblog]] is a nice, more fully-featured JVM/Clojure static site generator -
+  but built for Markdown, not Org-mode.
