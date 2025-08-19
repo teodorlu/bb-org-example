@@ -1,6 +1,6 @@
 (ns bb-org-example
   (:require [babashka.fs :as fs]
-            [bb-org-example.pandoc :as pandoc]
+            [babashka.process :as p]
             [hiccup2.core :as hiccup]))
 
 (defn list-post-slugs []
@@ -19,10 +19,24 @@
 (defn slug->html-path [slug]
   (fs/file site-root (str slug ".html")))
 
+(defn pandoc [str from to & extra-args]
+  (-> (apply p/process
+             {:in str :out :string}
+             "pandoc" "--from" from "--to" to
+             extra-args)
+      deref
+      :out))
+
+(defn org->html [org-str]
+  (pandoc org-str "org+smart" "html"))
+
+(defn org->html-standalone [org-str]
+  (pandoc org-str "org+smart" "html" "--standalone"))
+
 (defn build-post [slug]
   (let [org-path (slug->org-path slug)
         html-path (slug->html-path slug)]
-    (spit html-path (-> org-path slurp pandoc/from-org pandoc/to-html-standalone))
+    (spit html-path (-> org-path slurp org->html-standalone))
     [:created (str html-path) :from (str org-path)]))
 
 (defn slug->link [slug]
