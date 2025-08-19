@@ -19,9 +19,9 @@
 (defn slug->html-path [slug]
   (fs/file site-root (str slug ".html")))
 
-(defn pandoc [str from to & extra-args]
+(defn pandoc [s from to & extra-args]
   (-> (apply p/process
-             {:in str :out :string}
+             {:in s :out :string}
              "pandoc" "--from" from "--to" to
              extra-args)
       deref
